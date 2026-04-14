@@ -14,7 +14,8 @@ def convert(obj):
 
 df['genres'] = df['genres'].apply(convert)
 
-df['overview'] = df['overview'].astype(str)
+df['overview'] = df['overview'].fillna('')
+df['genres'] = df['genres'].fillna('')
 df['tags'] = df['overview'] + " " + df['genres']
 
 tfidf = TfidfVectorizer(stop_words='english')
